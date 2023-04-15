@@ -1,6 +1,6 @@
 package com.example.projetjee.model;
 
-import javax.management.relation.Role;
+
 import javax.persistence.*;
 import java.util.Collection;
 
@@ -26,6 +26,13 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "programme_id"))
     private Collection<Programme> progammes;
+
+
+    //    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    //    @JoinTable(name = "user_programme",
+    //            joinColumns = @JoinColumn(name = "user_id"),
+    //            inverseJoinColumns = @JoinColumn(name = "programme_id"))
+    //    private Collection<Role> roles;
 
     public User(String prenom, String nom, String email, String password, Collection<Programme> progammes) {
         this.prenom = prenom;
@@ -94,7 +101,12 @@ public class User {
     public void setProgammes(Collection<Programme> progammes) {
         this.progammes = progammes;
     }
-
+//    public Collection<Role> getRoles() {
+//        return roles;
+//    }
+//    public void setRoles(Collection<Role> roles) {
+//        this.roles = roles;
+//    }
 
 
 }
