@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Inscription</title>
@@ -8,10 +8,15 @@
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
 
+    <style>
+        .container2 {
+            margin-top: calc(50vh - 200px);
+        }
+    </style>
 </head>
 <body>
 
-<!-- Create navigation bar (herader) -->
+
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -26,52 +31,52 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#" th:href="@{/}">Register and Login</a>
+            <a class="navbar-brand" href="#" th:href="@{/}">Inscription et Connection</a>
         </div>
     </div>
 </nav>
 
-<!-- Create HTML registration form -->
-<div class="container">
+
+<div class="container2">
     <div class="row">
-        <div class = "col-md-6 col-md-offset-3">
+        <div class="col-md-6 col-md-offset-3">
             <!-- success message -->
             <div th:if="${param.success}">
-                <div class="alert altert-info">Vous ètes désormais inscris !> </div>
+                <div class="alert alert-info">Vous êtes désormais inscrit !</div>
             </div>
 
             <h1>Inscription</h1>
 
-            <form th:action="@{/registration}" method="post"  th:object = "${user}">
+            <form th:action="@{/registration}" method="post" th:object="${user}">
                 <div class="form-group">
-                    <label class = "control-label " for="prenom">
-                        Prenom
+                    <label class="control-label" for="prenom">
+                        Prénom
                     </label>
-                    <input id="prenom" class="form-control" th:field="*{prenom}" required autofocus="autofocus" />
+                    <input id="prenom" class="form-control" type="text" th:field="*{prenom}" required autofocus="autofocus" />
                 </div>
                 <div class="form-group">
-                    <label class = "control-label " for="nom">
+                    <label class="control-label" for="nom">
                         Nom
                     </label>
-                    <input id="nom" class="form-control" th:field="*{nom}" required autofocus="autofocus" />
+                    <input id="nom" class="form-control" type="text" th:field="*{nom}" required autofocus="autofocus" />
                 </div>
                 <div class="form-group">
-                    <label class = "control-label " for="email">
+                    <label class="control-label" for="email">
                         Email
                     </label>
-                    <input id="email" class="form-control" th:field="*{email}" required autofocus="autofocus" />
+                    <input id="email" class="form-control" type="email" th:field="*{email}" required autofocus="autofocus" />
                 </div>
                 <div class="form-group">
-                    <label class = "control-label " for="password">
+                    <label class="control-label" for="password">
                         Mot de passe
                     </label>
-                    <input id="password" type="password"class="form-control" th:field="*{password}" required autofocus="autofocus" />
+                    <input id="password" class="form-control" type="password" th:field="*{password}" required autofocus="autofocus" />
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class = "btn btn-success">Inscripton</button>
-                    <span>Déjà Inscrit ?
-                            <a href="/static" th:href="@{/login}">Connecte toi ici !"</a>
+                    <button type="submit" class="btn btn-success">Inscription</button>
+                    <span>Déjà inscrit ?
+                            <a href="/static" th:href="@{/login}">Connecte-toi ici !</a>
                         </span>
                 </div>
             </form>

@@ -1,6 +1,8 @@
 package com.example.projetjee.model;
 
-import jakarta.persistence.*;
+
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "programmes")

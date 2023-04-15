@@ -1,7 +1,7 @@
 package com.example.projetjee.model;
 
-import jakarta.persistence.*;
-
+import javax.management.relation.Role;
+import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
@@ -13,6 +13,8 @@ public class User {
 
     @Column(name = "prenom")
     private String prenom;
+
+
     @Column(name = "nom")
     private String nom;
     @Column(name = "email")
@@ -44,5 +46,55 @@ public class User {
 
     public User() {
 
+   }
+    public int getId() {
+        return id;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Collection<Programme> getProgammes() {
+        return progammes;
+    }
+
+    public void setProgammes(Collection<Programme> progammes) {
+        this.progammes = progammes;
+    }
+
+
+
 }
