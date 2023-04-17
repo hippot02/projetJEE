@@ -12,14 +12,13 @@
     <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
     <style>
-        .container2 {
-            margin-top: calc(50vh - 200px);
+        .w3-third {
+            margin-top:150px;
         }
     </style>
 
 </head>
 <body>
-
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -36,65 +35,103 @@
             </button>
             <a class="navbar-brand" href="#" th:href="@{/}">RoadToCapychad</a>
         </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a th:href="@{/index}">Les Programmes</a> </li>
+                <li><a th:href="@{/login}">Se connecter</a></li>
+                <li><a th:href="@{/registration}">S'inscrire</a></li>
+                <li><a th:href="@{/logout}">Se deconnecter</a></li>
+            </ul>
+        </div>
     </div>
 </nav>
 
-<header class="w3-container w3-theme w3-padding" id="myHeader">
-    <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-theme"></i>
-    <div class="w3-center">
-        <h1 class="w3-xxxlarge w3-animate-bottom">Titre</h1>
-    </div>
-</header>
 
-<div class="w3-row-padding w3-center w3-margin-top">
-    <div class="w3-third">
-        <div class="w3-card w3-container" style="min-height:460px">
-            <h3>Nom Programme</h3><br>
-            <i class="fa fa-desktop w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-            <p>blablabla</p>
-            <p>blablablabla</p>
-            <br>
-            <p>Noter le programme :</p>
-            <form th:action="@{/note}" method="post">
-            <input id="note" name="note" type="number" step="1" min="0" max="10" />
-            </form>
-            <a class="w3-button w3-theme">Valider la note</a>
-        </div>
-    </div>
-
-
-
-    <div class="w3-third">
-        <div class="w3-card w3-container" style="min-height:460px">
-            <h3>Nom Programme</h3><br>
-            <i class="fa fa-desktop w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-            <p>blablabla</p>
-            <p>blablablabla</p>
-            <br>
-            <p>Noter le programme :</p>
-            <input id="note2" name="note2" type="number" step="1" min="0" max="10" />
-            <a class="w3-button w3-theme">Valider la note</a>
-        </div>
-    </div>
-
-    <div class="w3-third">
-        <div class="w3-card w3-container" style="min-height:460px">
-            <h3>Nom Programme</h3><br>
-            <i class="fa fa-desktop w3-margin-bottom w3-text-theme" style="font-size:120px"></i>
-            <p>blablabla</p>
-            <p>blablablabla</p>
-            <br>
-            <p>Noter le programme :</p>
-            <input id="note3" name="note3" type="number" step="1" min="0" max="10" />
-            <a class="w3-button w3-theme">Valider la note</a>
+<div class="w3-third">
+    <div class="w3-card w3-container" style="min-height:460px">
+        <h3>CapyToutFlasque</h3><br>
+        <img src="https://media.discordapp.net/attachments/813869724823846982/1097556222229610536/640px-Capybara_baby_bottle.png?width=773&height=515"
+             alt="capyBebe"
+             style="width:150px;height:150px;"/>
+        <br>
+        <b>Pour les débutants</b>
+        <p>C'est tes débuts dans le sport ? Ce programme est parfait pour toi, tu dois le faire une fois tous les 2 jours : <br>
+            -10min de corde a sauter<br>
+            -3 séries de 10 pompes<br>
+            -3 séries de 10 squats<br>
+            -3 séries de 20 abdos<br>
+        </p>
+        <br>
+        <p>Noter le programme :</p>
+        <form method="post" th:action="@{/index}">
+            <input type="number" class = "form-control" id ="note3" name = "note3"
+                   placeholder="Entrer une note entre 1 et 10" autofocus="autofocus" max="10" min="0">
+            <input type="submit" name="login-submit3" id="login-submit3"
+                   class="form-control btn btn-success" value="Valider !" />
+        </form>
+        <div>
+            Note: <span th:text="${moyenne3}"></span>
         </div>
     </div>
 </div>
 
 
-
-    <div class="container2">
-        Welcome <span sec:authentication="principal.username"> User</span>
+    <div class="w3-third">
+        <div class="w3-card w3-container" style="min-height:460px">
+            <h3>CapyBaigneur</h3><br>
+            <img src="https://media.discordapp.net/attachments/813869724823846982/1097555202518831265/capyOrange.jpg?width=281&height=281"
+                 alt="capyBaigneur"
+                 style="width:150px;height:150px;">
+            <br>
+            <b>Pour les CapyCrawleur</b>
+            <p>Pour que tout baigne, réalises ces exercices 3 fois par semaine :<br>
+                -10 longueurs de crawl<br>
+                -10 longueurs de brasse<br>
+                -10 plongeonts 10M<br>
+                -10 longueurs de papilon
+            </p>
+            <br>
+            <p>Noter le programme :</p>
+            <form method="post" th:action="@{/index}">
+                <input type="number" class = "form-control" id ="note2" name = "note2"
+                       placeholder="Entrer une note entre 1 et 10" autofocus="autofocus" max="10" min="0">
+                <input type="submit" name="login-submit2" id="login-submit2"
+                       class="form-control btn btn-success" value="Valider !" />
+            </form>
+            <div>
+                Note: <span th:text="${moyenne2}"></span>
+            </div>
+        </div>
     </div>
+
+
+<div class="w3-third">
+    <div class="w3-card w3-container" style="min-height:460px">
+        <h3>CapyBoss</h3><br>
+        <img src="https://media.discordapp.net/attachments/813869724823846982/1097555202246184980/capyChad.jpg?width=312&height=311"
+             alt="imageCapyChad"
+             style="width:150px;height:150px;">
+        <br>
+        <b>Pas pour les fiotasses !</b>
+        <p>Tu vas morfler avec cette série d'exercices à faire tous les jours :<br>
+            -1h de sprint<br>
+            -1h de pompes<br>
+            -1h de tractions<br>
+            -1h de saut en longueur
+        </p>
+        <br>
+        <p>Noter le programme :</p>
+        <form method="post" th:action="@{/index}">
+            <input type="number" class = "form-control" id ="note" name = "note"
+                   placeholder="Entrer une note entre 1 et 10" autofocus="autofocus" max="10" min="0">
+            <input type="submit" name="login-submit" id="login-submit"
+                   class="form-control btn btn-success" value="Valider !" />
+        </form>
+        <div>
+            Note: <span th:text="${moyenne1}"></span>
+        </div>
+    </div>
+</div>
 </body>
 </html>
+
