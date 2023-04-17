@@ -10,14 +10,14 @@ public class Notation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private Float value;
+    @Column(nullable = true)
+    private Integer value;
 
     @Column(nullable = true)
-    private Float value2;
+    private Integer value2;
 
     @Column(nullable = true)
-    private Float value3;
+    private Integer value3;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
@@ -31,28 +31,27 @@ public class Notation {
         this.id = id;
     }
 
-
-    public Float getValue() {
+    public Integer getValue() {
         return value;
     }
 
-    public void setValue(Float value) {
+    public void setValue(Integer value) {
         this.value = value;
     }
 
-    public Float getValue2() {
+    public Integer getValue2() {
         return value2;
     }
 
-    public void setValue2(Float value2) {
+    public void setValue2(Integer value2) {
         this.value2 = value2;
     }
 
-    public Float getValue3() {
+    public Integer getValue3() {
         return value3;
     }
 
-    public void setValue3(Float value3) {
+    public void setValue3(Integer value3) {
         this.value3 = value3;
     }
 
